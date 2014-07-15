@@ -10,12 +10,26 @@ public class StatusSystemLights
     {
         GlobalServiceResolver serviceResolver = GlobalServiceResolver.INSTANCE;
 
+        serviceResolver.register(new SerialInterface());
+        
+        initConsole(serviceResolver);
+        
+        
+        
+        
+        
+        
+        System.out.println("Type: help");
+        
+        
+    }
+
+    private static void initConsole(GlobalServiceResolver serviceResolver)
+    {
         Console console = Console.INSTANCE;
 
         console.initialize(serviceResolver);
         console.start(false);
-        
-        System.out.println("Type: help");
     }
     
 }
