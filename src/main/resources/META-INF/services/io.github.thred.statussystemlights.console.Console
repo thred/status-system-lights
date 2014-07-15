@@ -1,0 +1,9 @@
+io.github.thred.statussystemlights.console.command.AmpersandCommand
+io.github.thred.statussystemlights.console.command.ExitCommand
+io.github.thred.statussystemlights.console.command.EchoCommand
+io.github.thred.statussystemlights.console.command.HelpCommand
+io.github.thred.statussystemlights.console.command.MemoryCommand
+io.github.thred.statussystemlights.console.command.PipeCommand
+io.github.thred.statussystemlights.console.command.PropCommand
+io.github.thred.statussystemlights.console.command.SnackCommand
+io.github.thred.statussystemlights.console.command.ThreadCommand
