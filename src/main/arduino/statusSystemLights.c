@@ -78,6 +78,8 @@ void loop() {
 		ledRepeat[pin] = repeat;
 
 		while (Serial.read() != '\n');
+
+		Serial.println("Updated LED " + pin);
 	}
 
 	delay(10);
