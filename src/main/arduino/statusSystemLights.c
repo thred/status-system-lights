@@ -79,4 +79,6 @@ void loop() {
 
 		while (Serial.read() != '\n');
 	}
+
+	delay(10);
 }
