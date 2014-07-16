@@ -37,14 +37,19 @@ public class SendCommand extends AbstractCommand
     @Override
     public int execute(String commandName, Process process) throws Exception
     {
-        Long value = process.args.consumeLong();
+        StringBuilder builder = new StringBuilder();
 
-        while (value != null)
+        while (!process.args.isEmpty())
         {
-            serialInterface.sendInt(value.intValue());
+            builder.append(process.args.consumeString());
 
-            value = process.args.consumeLong();
+            if (!process.args.isEmpty())
+            {
+                builder.append(" ");
+            }
         }
+
+        serialInterface.send(builder.toString());
 
         return 0;
     }

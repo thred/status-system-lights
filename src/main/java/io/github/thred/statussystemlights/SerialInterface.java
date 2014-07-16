@@ -8,8 +8,8 @@ import gnu.io.SerialPortEventListener;
 import gnu.io.UnsupportedCommOperationException;
 import io.github.thred.statussystemlights.util.Redirect;
 
-import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -24,7 +24,7 @@ public class SerialInterface implements SerialPortEventListener
     private SerialPort serialPort;
 
     private Redirect redirect;
-    private DataOutputStream out;
+    private OutputStream out;
 
     public SerialInterface()
     {
@@ -110,7 +110,7 @@ public class SerialInterface implements SerialPortEventListener
 
         try
         {
-            out = new DataOutputStream(serialPort.getOutputStream());
+            out = serialPort.getOutputStream();
         }
         catch (IOException e)
         {
@@ -165,16 +165,17 @@ public class SerialInterface implements SerialPortEventListener
         //        }
     }
 
-    public void sendInt(int value) throws SerialInterfaceException
+    public void send(String s) throws SerialInterfaceException
     {
         if (out == null)
         {
             throw new SerialInterfaceException("Serial port not open");
         }
-        
+
         try
         {
-            out.writeInt(value);
+            out.write(s.getBytes("US-ASCII"));
+            out.write('\n');
         }
         catch (IOException e)
         {
