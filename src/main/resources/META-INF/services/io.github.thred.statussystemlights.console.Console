@@ -5,6 +5,7 @@ io.github.thred.statussystemlights.console.command.HelpCommand
 io.github.thred.statussystemlights.console.command.MemoryCommand
 io.github.thred.statussystemlights.console.command.PipeCommand
 io.github.thred.statussystemlights.console.command.PropCommand
+io.github.thred.statussystemlights.console.command.SleepCommand
 io.github.thred.statussystemlights.console.command.SnackCommand
 io.github.thred.statussystemlights.console.command.ThreadCommand
 
@@ -14,3 +15,4 @@ io.github.thred.statussystemlights.ListCommand
 io.github.thred.statussystemlights.OpenCommand
 io.github.thred.statussystemlights.SendCommand
 io.github.thred.statussystemlights.TrafficLightCommand
+io.github.thred.statussystemlights.TrafficLightFXCommand

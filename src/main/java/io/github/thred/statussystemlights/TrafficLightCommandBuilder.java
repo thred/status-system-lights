@@ -79,19 +79,19 @@ public class TrafficLightCommandBuilder
 
     public TrafficLightCommandBuilder set(int trafficLightId, int color, int state, int swtch, int repeat)
     {
-        return send(toLedId(trafficLightId, color), state, swtch, repeat);
+        return set(toLedId(trafficLightId, color), state, swtch, repeat);
+    }
+
+    public TrafficLightCommandBuilder set(int ledId, int state, int swtch, int repeat)
+    {
+        commands.add(String.format("u %d %d %d %d", ledId, state, swtch, repeat));
+
+        return this;
     }
 
     protected int toLedId(int trafficLightId, int color)
     {
         return (trafficLightId * 3) + 2 + color;
-    }
-
-    protected TrafficLightCommandBuilder send(int ledId, int state, int swtch, int repeat)
-    {
-        commands.add(String.format("u %d %d %d %d", ledId, state, swtch, repeat));
-
-        return this;
     }
 
     @Override
