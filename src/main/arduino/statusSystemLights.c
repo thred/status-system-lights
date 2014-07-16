@@ -80,8 +80,8 @@ void loop() {
 			ledSwitch[pin] = swtch;
 			ledRepeat[pin] = repeat;
 
-			Serial.print("Updated LED ");
-			Serial.println(pin);
+			// Serial.print("Updated LED ");
+			// Serial.println(pin);
 		}
 		else if (c > ' ') {
 			Serial.print("Invalid character: ");
