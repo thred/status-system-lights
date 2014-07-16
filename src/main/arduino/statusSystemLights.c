@@ -79,8 +79,9 @@ void loop() {
 
 		while (Serial.read() != '\n');
 
-		Serial.println("Updated LED " + pin);
+		Serial.print("Updated LED ");
+		Serial.println(pin, DEC);
 	}
-
+	
 	delay(10);
 }
