@@ -5,14 +5,14 @@ Protocol = PIN CURRENT-TIME TURN-OFF-TIME TURN-ON-AND-REPEAT-TIME
 
 e.g.
 
-0 0 100 200	\n		LED 0 Off after 100, On after 100
+u 2 0 100 200		LED 0 Off after 100, On after 100
 
-1 0 0 0	\n			LED 1 Always OFF
+u 3 0 0 0			LED 1 Always OFF
 
-2 1 0 0	\n 			LED 2 Always ON
+u 4 1 0 0 			LED 2 Always ON
 */
 
-const int PINS = 16;
+const int PINS = 14;
 const int ON = LOW;
 const int OFF = HIGH;
 
@@ -31,7 +31,7 @@ int ledRepeat[PINS];
 void setup() {
 	Serial.begin(9600);
 
-	for (int i=0; i<PINS; ++i) {
+	for (int i=2; i<PINS; ++i) {
 		pinMode(i, OUTPUT); 
 		ledState[i] = 0;
 		ledSwitch[i] = 0;
@@ -42,7 +42,7 @@ void setup() {
 
 void loop() {
 	// adjust the leds
-	for (int i=0; i<PINS; ++i) {
+	for (int i=2; i<PINS; ++i) {
 		// if ledRepeat is <= 0 the light does not change state
 		if (ledRepeat[i] <= 0) {
 			continue;
@@ -61,27 +61,33 @@ void loop() {
 
 	// read commands
 	while (Serial.available() > 0) {
-		int pin = Serial.parseInt();
-		int state = Serial.parseInt();
-		int swtch = Serial.parseInt();
-		int repeat = Serial.parseInt();
+		char c = Serial.read();
 
-		if ((state > repeat) || (state < swtch)) {
-			digitalWrite(pin, ON);
+		if (c == 'u') {		
+			int pin = Serial.parseInt();
+			int state = Serial.parseInt();
+			int swtch = Serial.parseInt();
+			int repeat = Serial.parseInt();
+
+			if ((state > repeat) || (state < swtch)) {
+				digitalWrite(pin, ON);
+			}
+			else {
+				digitalWrite(pin, OFF);
+			}
+
+			ledState[pin] = state;
+			ledSwitch[pin] = swtch;
+			ledRepeat[pin] = repeat;
+
+			Serial.print("Updated LED ");
+			Serial.println(pin);
 		}
-		else {
-			digitalWrite(pin, OFF);
+		else if (c > ' ') {
+			Serial.print("Invalid character: ");
+			Serial.println(c);
 		}
-
-		ledState[pin] = state;
-		ledSwitch[pin] = swtch;
-		ledRepeat[pin] = repeat;
-
-		while (Serial.read() != '\n');
-
-		Serial.print("Updated LED ");
-		Serial.println(pin, DEC);
 	}
-	
+
 	delay(10);
 }
