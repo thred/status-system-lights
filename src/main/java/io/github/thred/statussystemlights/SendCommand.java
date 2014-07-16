@@ -19,7 +19,7 @@ public class SendCommand extends AbstractCommand
     @Override
     public String getFormat()
     {
-        return "{value}";
+        return "[-n] [-f] {value}";
     }
 
     @Override
@@ -38,18 +38,31 @@ public class SendCommand extends AbstractCommand
     public int execute(String commandName, Process process) throws Exception
     {
         StringBuilder builder = new StringBuilder();
+        boolean newLine = process.args.consumeFlag("-n");
+        boolean flush = process.args.consumeFlag("-n");
 
         while (!process.args.isEmpty())
         {
             builder.append(process.args.consumeString());
-
-            if (!process.args.isEmpty())
-            {
-                builder.append(" ");
-            }
+            builder.append(" ");
         }
 
-        serialInterface.send(builder.toString());
+        int count = serialInterface.send(builder.toString());
+
+        if (newLine)
+        {
+            serialInterface.send((byte) '\n');
+        }
+
+        if (flush)
+        {
+            count = serialInterface.flush();
+
+            process.out.printf("Flushed %d bytes.\n", count);
+        }
+        else {
+            process.out.printf("Buffered %d bytes.\n", count);
+        }
 
         return 0;
     }
@@ -57,7 +70,7 @@ public class SendCommand extends AbstractCommand
     @Override
     protected String getHelpDescription()
     {
-        return null;
+        return "Sends integer values.\n\n" + "-n    Terminates the string with \\n\n" + "-f    Flushes the output";
     }
 
 }

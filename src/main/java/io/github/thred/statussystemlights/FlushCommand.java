@@ -4,14 +4,14 @@ import io.github.thred.statussystemlights.console.AbstractCommand;
 import io.github.thred.statussystemlights.console.ConsoleAdapter;
 import io.github.thred.statussystemlights.console.Process;
 
-public class CloseCommand extends AbstractCommand
+public class FlushCommand extends AbstractCommand
 {
 
     private final SerialInterface serialInterface;
 
-    public CloseCommand(ConsoleAdapter consoleAdapter, SerialInterface serialInterface)
+    public FlushCommand(ConsoleAdapter consoleAdapter, SerialInterface serialInterface)
     {
-        super(consoleAdapter, "close", "c");
+        super(consoleAdapter, "flush", "f");
 
         this.serialInterface = serialInterface;
     }
@@ -25,21 +25,21 @@ public class CloseCommand extends AbstractCommand
     @Override
     public String getDescription()
     {
-        return "Closes a serial port";
+        return "Flushes the cached data.";
     }
 
     @Override
     public int getOrdinal()
     {
-        return 20;
+        return 13;
     }
 
     @Override
     public int execute(String commandName, Process process) throws Exception
     {
-        serialInterface.close();
+        int count = serialInterface.flush();
 
-        process.out.println("Closed.");
+        process.out.printf("Flushed %d bytes.\n", count);
 
         return 0;
     }
