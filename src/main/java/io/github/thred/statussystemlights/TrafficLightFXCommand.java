@@ -1,20 +1,19 @@
 package io.github.thred.statussystemlights;
 
-import io.github.thred.statussystemlights.console.AbstractCommand;
-import io.github.thred.statussystemlights.console.ArgumentException;
-import io.github.thred.statussystemlights.console.ConsoleAdapter;
-import io.github.thred.statussystemlights.console.Process;
-import io.github.thred.statussystemlights.console.util.Arguments;
-import io.github.thred.statussystemlights.util.Utils;
+import io.github.thred.tinyconsole.AbstractCommand;
+import io.github.thred.tinyconsole.ArgumentException;
+import io.github.thred.tinyconsole.Process;
+import io.github.thred.tinyconsole.util.Arguments;
+import io.github.thred.tinyconsole.util.Utils;
 
 public class TrafficLightFXCommand extends AbstractCommand
 {
 
     private final SerialInterface serialInterface;
 
-    public TrafficLightFXCommand(ConsoleAdapter consoleAdapter, SerialInterface serialInterface)
+    public TrafficLightFXCommand(SerialInterface serialInterface)
     {
-        super(consoleAdapter, "trafficLightFX", "tlfx");
+        super("trafficLightFX", "tlfx");
 
         this.serialInterface = serialInterface;
     }

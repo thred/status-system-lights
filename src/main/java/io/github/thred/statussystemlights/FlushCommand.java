@@ -1,17 +1,16 @@
 package io.github.thred.statussystemlights;
 
-import io.github.thred.statussystemlights.console.AbstractCommand;
-import io.github.thred.statussystemlights.console.ConsoleAdapter;
-import io.github.thred.statussystemlights.console.Process;
+import io.github.thred.tinyconsole.AbstractCommand;
+import io.github.thred.tinyconsole.Process;
 
 public class FlushCommand extends AbstractCommand
 {
 
     private final SerialInterface serialInterface;
 
-    public FlushCommand(ConsoleAdapter consoleAdapter, SerialInterface serialInterface)
+    public FlushCommand(SerialInterface serialInterface)
     {
-        super(consoleAdapter, "flush", "f");
+        super("flush", "f");
 
         this.serialInterface = serialInterface;
     }

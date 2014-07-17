@@ -6,7 +6,7 @@ import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 import gnu.io.UnsupportedCommOperationException;
-import io.github.thred.statussystemlights.util.Redirect;
+import io.github.thred.tinyconsole.util.Redirect;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

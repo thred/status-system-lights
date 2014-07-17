@@ -1,35 +1,19 @@
 package io.github.thred.statussystemlights;
 
-import io.github.thred.statussystemlights.console.Console;
-import io.github.thred.statussystemlights.service.GlobalServiceResolver;
-
+import io.github.thred.tinyconsole.TinyConsole;
 
 public class StatusSystemLights
 {
     public static void main(String[] args)
     {
-        GlobalServiceResolver serviceResolver = GlobalServiceResolver.INSTANCE;
+        initConsole();
 
-        serviceResolver.register(new SerialInterface());
-        
-        initConsole(serviceResolver);
-        
-        
-        
-        
-        
-        
         System.out.println("Type: help");
-        
-        
     }
 
-    private static void initConsole(GlobalServiceResolver serviceResolver)
+    private static void initConsole()
     {
-        Console console = Console.INSTANCE;
-
-        console.initialize(serviceResolver);
-        console.start(false);
+        TinyConsole.start(false);
     }
-    
+
 }

@@ -1,18 +1,17 @@
 package io.github.thred.statussystemlights;
 
-import io.github.thred.statussystemlights.console.AbstractCommand;
-import io.github.thred.statussystemlights.console.ArgumentException;
-import io.github.thred.statussystemlights.console.ConsoleAdapter;
-import io.github.thred.statussystemlights.console.Process;
+import io.github.thred.tinyconsole.AbstractCommand;
+import io.github.thred.tinyconsole.ArgumentException;
+import io.github.thred.tinyconsole.Process;
 
 public class TrafficLightCommand extends AbstractCommand
 {
 
     private final SerialInterface serialInterface;
 
-    public TrafficLightCommand(ConsoleAdapter consoleAdapter, SerialInterface serialInterface)
+    public TrafficLightCommand(SerialInterface serialInterface)
     {
-        super(consoleAdapter, "trafficLight", "tl");
+        super("trafficLight", "tl");
 
         this.serialInterface = serialInterface;
     }
@@ -95,13 +94,14 @@ public class TrafficLightCommand extends AbstractCommand
         }
 
         String arg = process.args.consumeString();
-        
-        if (arg != null) {
+
+        if (arg != null)
+        {
             throw new ArgumentException("Invalid argument: " + arg);
         }
-        
+
         process.out.println("Sending " + builder.toString());
-        
+
         serialInterface.send(builder.toString());
         serialInterface.flush();
 

@@ -1,8 +1,7 @@
 package io.github.thred.statussystemlights;
 
-import io.github.thred.statussystemlights.console.AbstractCommand;
-import io.github.thred.statussystemlights.console.ConsoleAdapter;
-import io.github.thred.statussystemlights.console.Process;
+import io.github.thred.tinyconsole.AbstractCommand;
+import io.github.thred.tinyconsole.Process;
 
 import java.util.List;
 
@@ -11,9 +10,9 @@ public class ListCommand extends AbstractCommand
 
     private final SerialInterface serialInterface;
 
-    public ListCommand(ConsoleAdapter consoleAdapter, SerialInterface serialInterface)
+    public ListCommand(SerialInterface serialInterface)
     {
-        super(consoleAdapter, "list", "l");
+        super("list", "l");
 
         this.serialInterface = serialInterface;
     }

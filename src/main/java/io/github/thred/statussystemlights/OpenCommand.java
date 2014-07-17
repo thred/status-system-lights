@@ -1,17 +1,16 @@
 package io.github.thred.statussystemlights;
 
-import io.github.thred.statussystemlights.console.AbstractCommand;
-import io.github.thred.statussystemlights.console.ConsoleAdapter;
-import io.github.thred.statussystemlights.console.Process;
+import io.github.thred.tinyconsole.AbstractCommand;
+import io.github.thred.tinyconsole.Process;
 
 public class OpenCommand extends AbstractCommand
 {
 
     private final SerialInterface serialInterface;
 
-    public OpenCommand(ConsoleAdapter consoleAdapter, SerialInterface serialInterface)
+    public OpenCommand(SerialInterface serialInterface)
     {
-        super(consoleAdapter, "open", "o");
+        super("open", "o");
 
         this.serialInterface = serialInterface;
     }
@@ -38,15 +37,16 @@ public class OpenCommand extends AbstractCommand
     public int execute(String commandName, Process process) throws Exception
     {
         String name = process.args.consumeString();
-        
-        if (name == null) {
-           process.err.println("Port is missing.");
-           
-           return -1;
+
+        if (name == null)
+        {
+            process.err.println("Port is missing.");
+
+            return -1;
         }
-        
+
         serialInterface.open(name, process.out);
-        
+
         return 0;
     }
 

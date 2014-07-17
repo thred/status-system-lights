@@ -1,17 +1,16 @@
 package io.github.thred.statussystemlights;
 
-import io.github.thred.statussystemlights.console.AbstractCommand;
-import io.github.thred.statussystemlights.console.ConsoleAdapter;
-import io.github.thred.statussystemlights.console.Process;
+import io.github.thred.tinyconsole.AbstractCommand;
+import io.github.thred.tinyconsole.Process;
 
 public class CloseCommand extends AbstractCommand
 {
 
     private final SerialInterface serialInterface;
 
-    public CloseCommand(ConsoleAdapter consoleAdapter, SerialInterface serialInterface)
+    public CloseCommand(SerialInterface serialInterface)
     {
-        super(consoleAdapter, "close", "c");
+        super("close", "c");
 
         this.serialInterface = serialInterface;
     }

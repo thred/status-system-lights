@@ -1,17 +1,16 @@
 package io.github.thred.statussystemlights;
 
-import io.github.thred.statussystemlights.console.AbstractCommand;
-import io.github.thred.statussystemlights.console.ConsoleAdapter;
-import io.github.thred.statussystemlights.console.Process;
+import io.github.thred.tinyconsole.AbstractCommand;
+import io.github.thred.tinyconsole.Process;
 
 public class SendCommand extends AbstractCommand
 {
 
     private final SerialInterface serialInterface;
 
-    public SendCommand(ConsoleAdapter consoleAdapter, SerialInterface serialInterface)
+    public SendCommand(SerialInterface serialInterface)
     {
-        super(consoleAdapter, "send", "s");
+        super("send", "s");
 
         this.serialInterface = serialInterface;
     }
@@ -60,7 +59,8 @@ public class SendCommand extends AbstractCommand
 
             process.out.printf("Flushed %d bytes.\n", count);
         }
-        else {
+        else
+        {
             process.out.printf("Buffered %d bytes.\n", count);
         }
 
