@@ -1,4 +1,4 @@
-open com7
+open com4
 sleep 1
 
 tlfx raise

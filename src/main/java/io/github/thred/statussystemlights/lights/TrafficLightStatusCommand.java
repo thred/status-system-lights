@@ -88,7 +88,6 @@ public class TrafficLightStatusCommand extends AbstractCommand
         process.out.println("Sending " + builder.toString());
 
         serialInterface.send(builder.toString());
-        serialInterface.flush();
 
         return 0;
     }
