@@ -1,4 +1,4 @@
-package io.github.thred.statussystemlights;
+package io.github.thred.statussystemlights.serial;
 
 import io.github.thred.tinyconsole.AbstractCommand;
 import io.github.thred.tinyconsole.Process;

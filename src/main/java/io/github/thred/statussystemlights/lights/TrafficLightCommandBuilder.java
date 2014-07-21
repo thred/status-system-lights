@@ -1,4 +1,4 @@
-package io.github.thred.statussystemlights;
+package io.github.thred.statussystemlights.lights;
 
 import java.util.ArrayList;
 import java.util.List;

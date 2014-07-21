@@ -1,4 +1,4 @@
-package io.github.thred.statussystemlights;
+package io.github.thred.statussystemlights.serial;
 
 import gnu.io.CommPortIdentifier;
 import gnu.io.PortInUseException;

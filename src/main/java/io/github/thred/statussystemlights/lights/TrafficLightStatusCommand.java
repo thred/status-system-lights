@@ -1,5 +1,7 @@
-package io.github.thred.statussystemlights;
+package io.github.thred.statussystemlights.lights;
 
+import io.github.thred.statussystemlights.serial.SerialInterface;
+import io.github.thred.statussystemlights.stasy.StaSyStatus;
 import io.github.thred.tinyconsole.AbstractCommand;
 import io.github.thred.tinyconsole.ArgumentException;
 import io.github.thred.tinyconsole.Process;

@@ -1,6 +1,6 @@
-package io.github.thred.statussystemlights;
+package io.github.thred.statussystemlights.lights;
 
-import static io.github.thred.statussystemlights.TrafficLightCommandBuilder.*;
+import static io.github.thred.statussystemlights.lights.TrafficLightCommandBuilder.*;
 
 public class TrafficLightFX
 {

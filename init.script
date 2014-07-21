@@ -1,0 +1,7 @@
+open com7
+sleep 1
+
+tlfx raise
+sleep 3.14
+
+cron add * * * * * shell update.script

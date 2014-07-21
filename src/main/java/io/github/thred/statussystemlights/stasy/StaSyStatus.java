@@ -1,4 +1,6 @@
-package io.github.thred.statussystemlights;
+package io.github.thred.statussystemlights.stasy;
+
+import io.github.thred.statussystemlights.lights.Color;
 
 import java.io.IOException;
 import java.util.Collections;

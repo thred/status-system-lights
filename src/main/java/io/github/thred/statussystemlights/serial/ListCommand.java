@@ -1,16 +1,18 @@
-package io.github.thred.statussystemlights;
+package io.github.thred.statussystemlights.serial;
 
 import io.github.thred.tinyconsole.AbstractCommand;
 import io.github.thred.tinyconsole.Process;
 
-public class CloseCommand extends AbstractCommand
+import java.util.List;
+
+public class ListCommand extends AbstractCommand
 {
 
     private final SerialInterface serialInterface;
 
-    public CloseCommand(SerialInterface serialInterface)
+    public ListCommand(SerialInterface serialInterface)
     {
-        super("close", "c");
+        super("list", "l");
 
         this.serialInterface = serialInterface;
     }
@@ -24,21 +26,31 @@ public class CloseCommand extends AbstractCommand
     @Override
     public String getDescription()
     {
-        return "Closes a serial port";
+        return "Lists a possible ports.";
     }
 
     @Override
     public int getOrdinal()
     {
-        return 20;
+        return 10;
     }
 
     @Override
     public int execute(String commandName, Process process) throws Exception
     {
-        serialInterface.close();
+        List<String> list = serialInterface.list();
 
-        process.out.println("Closed.");
+        if (list.size() == 0)
+        {
+            process.out.println("No ports found.");
+
+            return 0;
+        }
+
+        for (String entry : list)
+        {
+            process.out.printf("\t%s\n", entry);
+        }
 
         return 0;
     }

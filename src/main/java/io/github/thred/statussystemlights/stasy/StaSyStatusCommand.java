@@ -1,8 +1,9 @@
-package io.github.thred.statussystemlights;
+package io.github.thred.statussystemlights.stasy;
 
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+import io.github.thred.statussystemlights.lights.Color;
 import io.github.thred.tinyconsole.AbstractCommand;
 import io.github.thred.tinyconsole.ArgumentException;
 import io.github.thred.tinyconsole.Process;
