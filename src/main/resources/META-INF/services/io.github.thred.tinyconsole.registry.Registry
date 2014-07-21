@@ -1,12 +1,15 @@
-io.github.thred.statussystemlights.CloseCommand
-io.github.thred.statussystemlights.FlushCommand
-io.github.thred.statussystemlights.ListCommand
-io.github.thred.statussystemlights.OpenCommand
-io.github.thred.statussystemlights.SendCommand
-io.github.thred.statussystemlights.StaSyStatusCommand
-io.github.thred.statussystemlights.TrafficLightCommand
-io.github.thred.statussystemlights.TrafficLightFXCommand
-io.github.thred.statussystemlights.TrafficLightStatusCommand
+io.github.thred.statussystemlights.serial.CloseCommand
+io.github.thred.statussystemlights.serial.FlushCommand
+io.github.thred.statussystemlights.serial.ListCommand
+io.github.thred.statussystemlights.serial.OpenCommand
+io.github.thred.statussystemlights.serial.SendCommand
 
-io.github.thred.statussystemlights.SerialInterface
-io.github.thred.statussystemlights.StaSyStatus
+io.github.thred.statussystemlights.stasy.StaSyStatusCommand
+
+io.github.thred.statussystemlights.lights.TrafficLightCommand
+io.github.thred.statussystemlights.lights.TrafficLightFXCommand
+io.github.thred.statussystemlights.lights.TrafficLightStatusCommand
+
+io.github.thred.statussystemlights.serial.SerialInterface
+
+io.github.thred.statussystemlights.stasy.StaSyStatus

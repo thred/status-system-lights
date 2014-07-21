@@ -1,0 +1,21 @@
+{
+	"CI Build 4.2": {
+		name: "CI Build 4.2",
+		color: "green"
+	},
+	
+	"CI Build 4.x": {
+		name: "CI Build 4.x",
+		color: "yellow"
+	},
+	
+	"Acceptance": {
+		name: "Acceptance",
+		color: "red"
+	},
+	
+	"Def 4.2 Hi Open": {
+		name: "Def 4.2 Hi Open",
+		color: "none"
+	}
+}

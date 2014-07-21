@@ -9,8 +9,12 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.apache.http.client.fluent.Content;
-import org.apache.http.client.fluent.Request;
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
@@ -24,12 +28,13 @@ public class StaSyStatus implements Iterable<Map.Entry<String, Color>>
         super();
     }
 
-    public Color get(String name) {
+    public Color get(String name)
+    {
         Color color = colors.get(name);
-        
+
         return (color != null) ? color : Color.NONE;
     }
-    
+
     @Override
     public Iterator<Entry<String, Color>> iterator()
     {
@@ -39,27 +44,53 @@ public class StaSyStatus implements Iterable<Map.Entry<String, Color>>
     @SuppressWarnings("rawtypes")
     public boolean update(String url)
     {
+        colors.clear();
+
+        CloseableHttpClient client = HttpClients.createDefault();
+        HttpGet get = new HttpGet(url);
+
         try
         {
-            Content content = Request.Get(url).execute().returnContent();
-            JSONObject object = (JSONObject) JSONValue.parse(content.asString());
-            Iterator iterator = object.entrySet().iterator();
+            CloseableHttpResponse response = client.execute(get);
 
-            while (iterator.hasNext())
+            try
             {
-                Map.Entry entry = (Entry) iterator.next();
-                JSONObject current = (JSONObject) entry.getValue();
-                
-                Color color = Color.parse((String) current.get("color"));
-              
-                colors.put((String) current.get("name"), color);
+                int status = response.getStatusLine().getStatusCode();
+
+                if ((status >= 200) && (status < 300))
+                {
+                    HttpEntity entity = response.getEntity();
+
+                    if (entity != null)
+                    {
+                        JSONObject object = (JSONObject) JSONValue.parse(EntityUtils.toString(entity));
+                        Iterator iterator = object.entrySet().iterator();
+
+                        while (iterator.hasNext())
+                        {
+                            Map.Entry entry = (Entry) iterator.next();
+                            JSONObject current = (JSONObject) entry.getValue();
+                            Color color = Color.parse((String) current.get("color"));
+
+                            colors.put((String) current.get("name"), color);
+                        }
+                    }
+                }
+                else
+                {
+                    System.err.println("Unexpected response status: " + status);
+                }
+            }
+            finally
+            {
+                response.close();
             }
         }
         catch (IOException e)
         {
             e.printStackTrace(System.err);
         }
-        
+
         return true;
     }
 }
