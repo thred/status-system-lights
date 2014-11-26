@@ -1,21 +1,237 @@
 {
-	"CI Build 4.2": {
-		name: "CI Build 4.2",
-		color: "green"
-	},
-	
-	"CI Build 4.x": {
-		name: "CI Build 4.x",
-		color: "yellow"
-	},
-	
-	"Acceptance": {
-		name: "Acceptance",
-		color: "red"
-	},
-	
-	"Def 4.2 Hi Open": {
-		name: "Def 4.2 Hi Open",
-		color: "none"
-	}
+    "4.x integration build": {
+        "color": "red",
+        "lastUpdateDate": "26.11.14",
+        "scheduleRateInSeconds": 60,
+        "name": "4.x Integration Build",
+        "icon": "jenkins.png",
+        "description": "Integration Build",
+        "detailLink": "jenkinsdetails\/4.x+Integration+Build",
+        "group": "NADIN4x",
+        "lastUpdateTime": "10:04"
+    },
+    "other": {
+        "color": "green",
+        "name": "Other"
+    },
+    "4.x load tests": {
+        "color": "notavailable",
+        "lastUpdateDate": "26.11.14",
+        "scheduleRateInSeconds": 60,
+        "name": "4.x Load Tests",
+        "icon": "jenkins.png",
+        "description": "Load Tests",
+        "detailLink": "loadtestdetails\/4.x+Load+Tests",
+        "group": "NADIN4x",
+        "lastUpdateTime": "10:04"
+    },
+    "ulrice ci build": {
+        "color": "green",
+        "lastUpdateDate": "26.11.14",
+        "scheduleRateInSeconds": 60,
+        "name": "Ulrice CI Build",
+        "icon": "jenkins.png",
+        "description": "Ulrice CI Build",
+        "detailLink": "jenkinsdetails\/Ulrice+CI+Build",
+        "group": "OTHER",
+        "lastUpdateTime": "10:04"
+    },
+    "4.x snapshot": {
+        "color": "green",
+        "lastUpdateDate": "26.11.14",
+        "scheduleRateInSeconds": 60,
+        "name": "4.x Snapshot",
+        "icon": "jenkins.png",
+        "description": "Snapshot Build",
+        "detailLink": "jenkinsdetails\/4.x+Snapshot",
+        "group": "NADIN4x",
+        "lastUpdateTime": "10:04"
+    },
+    "nadin 4.x": {
+        "color": "red",
+        "name": "NADIN 4.x"
+    },
+    "sprint": {
+        "color": "yellow",
+        "name": "Sprint"
+    },
+    "4.2.10.x high defects qa": {
+        "color": "green",
+        "lastUpdateDate": "26.11.14",
+        "scheduleRateInSeconds": 900,
+        "name": "4.2.10.x High Defects QA",
+        "icon": "alm_defect.png",
+        "description": "High Defects QA",
+        "detailLink": "defectdetails\/4.2.10.x+High+Defects+QA",
+        "group": "NADIN42",
+        "lastUpdateTime": "10:03"
+    },
+    "requirements incorrect": {
+        "color": "yellow",
+        "lastUpdateDate": "26.11.14",
+        "scheduleRateInSeconds": 600,
+        "name": "Requirements Incorrect",
+        "icon": "alm_req.png",
+        "description": "Incorrect",
+        "text": "1",
+        "detailLink": "reqdetails\/Requirements+Incorrect",
+        "group": "SPRINT",
+        "lastUpdateTime": "10:03"
+    },
+    "4.3.0.x ci build": {
+        "color": "green",
+        "lastUpdateDate": "26.11.14",
+        "scheduleRateInSeconds": 60,
+        "name": "4.3.0.x CI Build",
+        "icon": "jenkins.png",
+        "description": "CI Build",
+        "detailLink": "jenkinsdetails\/4.3.0.x+CI+Build",
+        "group": "NADIN43",
+        "lastUpdateTime": "10:04"
+    },
+    "requirements qa test open": {
+        "color": "yellow",
+        "lastUpdateDate": "26.11.14",
+        "scheduleRateInSeconds": 600,
+        "name": "Requirements QA Test Open",
+        "icon": "alm_req.png",
+        "description": "QA Test",
+        "text": "11",
+        "detailLink": "reqdetails\/Requirements+QA+Test+Open",
+        "group": "SPRINT",
+        "lastUpdateTime": "10:04"
+    },
+    "4.2.10.x ci build": {
+        "color": "green",
+        "lastUpdateDate": "26.11.14",
+        "scheduleRateInSeconds": 60,
+        "name": "4.2.10.x CI Build",
+        "icon": "jenkins.png",
+        "description": "CI Build",
+        "detailLink": "jenkinsdetails\/4.2.10.x+CI+Build",
+        "group": "NADIN42",
+        "lastUpdateTime": "10:04"
+    },
+    "4.2.10.x snapshot build": {
+        "color": "green",
+        "lastUpdateDate": "26.11.14",
+        "scheduleRateInSeconds": 60,
+        "name": "4.2.10.x Snapshot Build",
+        "icon": "jenkins.png",
+        "description": "Snapshot Build",
+        "detailLink": "jenkinsdetails\/4.2.10.x+Snapshot+Build",
+        "group": "NADIN42",
+        "lastUpdateTime": "10:04"
+    },
+    "requirements open": {
+        "color": "green",
+        "lastUpdateDate": "26.11.14",
+        "scheduleRateInSeconds": 600,
+        "name": "Requirements Open",
+        "icon": "alm_req.png",
+        "description": "Open",
+        "detailLink": "reqdetails\/Requirements+Open",
+        "group": "SPRINT",
+        "lastUpdateTime": "10:03"
+    },
+    "4.x ci build": {
+        "color": "notavailable",
+        "lastUpdateDate": "26.11.14",
+        "scheduleRateInSeconds": 60,
+        "name": "4.x CI Build",
+        "icon": "jenkins.png",
+        "description": "CI Build",
+        "detailLink": "jenkinsdetails\/4.x+CI+Build",
+        "group": "NADIN4x",
+        "lastUpdateTime": "10:04"
+    },
+    "4.x high defects": {
+        "color": "red",
+        "lastUpdateDate": "26.11.14",
+        "scheduleRateInSeconds": 900,
+        "name": "4.x High Defects",
+        "icon": "alm_defect.png",
+        "description": "High Defects",
+        "text": "14",
+        "detailLink": "defectdetails\/4.x+High+Defects",
+        "group": "NADIN4x",
+        "lastUpdateTime": "10:03"
+    },
+    "4.3.0.x load tests": {
+        "color": "notavailable",
+        "lastUpdateDate": "26.11.14",
+        "scheduleRateInSeconds": 60,
+        "name": "4.3.0.x Load Tests",
+        "icon": "jenkins.png",
+        "description": "Load Tests",
+        "detailLink": "loadtestdetails\/4.3.0.x+Load+Tests",
+        "group": "NADIN43",
+        "lastUpdateTime": "10:04"
+    },
+    "requirement defects": {
+        "color": "yellow",
+        "lastUpdateDate": "26.11.14",
+        "scheduleRateInSeconds": 900,
+        "name": "Requirement Defects",
+        "icon": "alm_defect.png",
+        "description": "Defects",
+        "text": "4",
+        "detailLink": "defectdetails\/Requirement+Defects",
+        "group": "SPRINT",
+        "lastUpdateTime": "10:03"
+    },
+    "4.2.10.x high defects": {
+        "color": "yellow",
+        "lastUpdateDate": "26.11.14",
+        "scheduleRateInSeconds": 900,
+        "name": "4.2.10.x High Defects",
+        "icon": "alm_defect.png",
+        "description": "High Defects",
+        "text": "2",
+        "detailLink": "defectdetails\/4.2.10.x+High+Defects",
+        "group": "NADIN42",
+        "lastUpdateTime": "10:03"
+    },
+    "4.3.0.x integration build": {
+        "color": "red",
+        "lastUpdateDate": "26.11.14",
+        "scheduleRateInSeconds": 60,
+        "name": "4.3.0.x Integration Build",
+        "icon": "jenkins.png",
+        "description": "Integration Build",
+        "detailLink": "jenkinsdetails\/4.3.0.x+Integration+Build",
+        "group": "NADIN43",
+        "lastUpdateTime": "10:04"
+    },
+    "requirements peer review": {
+        "color": "yellow",
+        "lastUpdateDate": "26.11.14",
+        "scheduleRateInSeconds": 600,
+        "name": "Requirements Peer Review",
+        "icon": "alm_req.png",
+        "description": "Peer Review",
+        "text": "1",
+        "detailLink": "reqdetails\/Requirements+Peer+Review",
+        "group": "SPRINT",
+        "lastUpdateTime": "10:03"
+    },
+    "nadin 4.3.0": {
+        "color": "red",
+        "name": "NADIN 4.3.0"
+    },
+    "nadin 4.2": {
+        "color": "yellow",
+        "name": "NADIN 4.2"
+    },
+    "4.3.0.x snapshot build": {
+        "color": "green",
+        "lastUpdateDate": "26.11.14",
+        "scheduleRateInSeconds": 60,
+        "name": "4.3.0.x Snapshot Build",
+        "icon": "jenkins.png",
+        "description": "Snapshot Build",
+        "detailLink": "jenkinsdetails\/4.3.0.x+Snapshot+Build",
+        "group": "NADIN43",
+        "lastUpdateTime": "10:04"
+    }
 }

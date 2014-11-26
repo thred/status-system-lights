@@ -1,8 +1,8 @@
 stasy update http://nadindevel.wob.vw.vwg:8081/rest
 
-tls 0 "CI Build 4.2"
-tls 1 "CI Build 4.x"
-tls 2 "Acceptance"
-tls 3 "Def 4.2 Hi Open"
+tls 0 "NADIN 4.2"
+tls 1 "NADIN 4.3.0"
+tls 2 "4.x CI Build"
+tls 3 "4.x Integration Build"
 flush
 

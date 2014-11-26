@@ -81,7 +81,7 @@ public class StaSyStatusCommand extends AbstractCommand
             {
                 Entry<String, Color> entry = iterator.next();
 
-                process.out.println(String.format("%20s: %s", entry.getKey(), entry.getValue()));
+                process.out.println(String.format("%40s: %s", entry.getKey(), entry.getValue()));
             }
 
             return 0;

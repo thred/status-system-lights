@@ -1,13 +1,14 @@
 package io.github.thred.statussystemlights.stasy;
 
 import io.github.thred.statussystemlights.lights.Color;
+import io.github.thred.statussystemlights.util.Utils;
 
 import java.io.IOException;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -21,7 +22,7 @@ import org.json.simple.JSONValue;
 public class StaSyStatus implements Iterable<Map.Entry<String, Color>>
 {
 
-    private final Map<String, Color> colors = new HashMap<String, Color>();
+    private final Map<String, Color> colors = new TreeMap<String, Color>(Utils.DICTIONARY_COMPARATOR);
 
     public StaSyStatus()
     {
